@@ -453,7 +453,7 @@ func (d *MetadataV14) findNameByCallIndex(callIdx string) (string, string, error
 		}
 		if uint8(mod.Index) == data[0] {
 			callType := mod.Calls.Type.Int64()
-			d.ldLk.Lock()
+			//d.ldLk.Lock()
 			call := d.LookUpData[callType]
 			if call == nil {
 				return "", "", fmt.Errorf("%s do not have this call id: %d", mod.Name, data[1])
@@ -466,7 +466,7 @@ func (d *MetadataV14) findNameByCallIndex(callIdx string) (string, string, error
 					return string(mod.Name), string(vars.Name), nil
 				}
 			}
-			d.ldLk.Unlock()
+			//d.ldLk.Unlock()
 		}
 	}
 	return "", "", errors.New("do not find")
