@@ -4,10 +4,11 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
-	"github.com/JFJun/go-substrate-rpc-client/v3/scale"
 	"hash"
 	"strings"
 	"sync"
+
+	"github.com/JFJun/go-substrate-rpc-client/v3/scale"
 )
 
 type MetadataV14 struct {
@@ -452,21 +453,28 @@ func (d *MetadataV14) findNameByCallIndex(callIdx string) (string, string, error
 			continue
 		}
 		if uint8(mod.Index) == data[0] {
+
 			callType := mod.Calls.Type.Int64()
-			//d.ldLk.Lock()
-			call := d.LookUpData[callType]
-			if call == nil {
+			d.ldLk.Lock()
+			//call := d.LookUpData[callType]
+			if callType > int64(len(d.Lookup))   {
+				d.ldLk.Unlock()
 				return "", "", fmt.Errorf("%s do not have this call id: %d", mod.Name, data[1])
 			}
-			if len(call.Def.Variant.Variants) == 0 {
+
+			call := d.Lookup[callType]
+
+			if len(call.Type.Def.Variant.Variants) == 0 {
+				d.ldLk.Unlock()
 				return "", "", fmt.Errorf("%s  call.Def.Variant.Variants len is 0", mod.Name)
 			}
-			for _, vars := range call.Def.Variant.Variants {
+			for _, vars := range call.Type.Def.Variant.Variants {
 				if uint8(vars.Index) == data[1] {
+					d.ldLk.Unlock()
 					return string(mod.Name), string(vars.Name), nil
 				}
 			}
-			//d.ldLk.Unlock()
+			d.ldLk.Unlock()
 		}
 	}
 	return "", "", errors.New("do not find")
