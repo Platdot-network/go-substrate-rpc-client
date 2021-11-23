@@ -66,14 +66,6 @@ type EventBalancesBalanceSet struct {
 	Topics   []Hash
 }
 
-// EventDeposit is emitted when an account receives some free balance
-type EventBalancesDeposit struct {
-	Phase   Phase
-	Who     AccountID
-	Balance U128
-	Topics  []Hash
-}
-
 // EventBalancesReserved is emitted when some balance was reserved (moved from free to reserved)
 type EventBalancesReserved struct {
 	Phase   Phase
@@ -100,6 +92,31 @@ type EventBalancesReserveRepatriated struct {
 	DestinationStatus BalanceStatus
 	Topics            []Hash
 }
+
+// EventDeposit is emitted when an account receives some free balance
+type EventBalancesDeposit struct {
+	Phase   Phase
+	Who     AccountID
+	Balance U128
+	Topics  []Hash
+}
+
+// Some amount was withdrawn from the account (e.g. for transaction fees).
+type EventBalancesWithdraw struct {
+	Phase   Phase
+	Who     AccountID
+	Balance U128
+	Topics  []Hash
+}
+
+// Some amount was removed from the account (e.g. for misbehavior).
+type EventBalancesSlashed struct {
+	Phase   Phase
+	Who     AccountID
+	Balance U128
+	Topics  []Hash
+}
+
 
 // EventGrandpaNewAuthorities is emitted when a new authority set has been applied
 type EventGrandpaNewAuthorities struct {
