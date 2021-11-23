@@ -4,11 +4,12 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/xxhash"
 	"hash"
 	"strings"
 	"sync"
 
-	"github.com/JFJun/go-substrate-rpc-client/v3/scale"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/scale"
 )
 
 type MetadataV14 struct {
@@ -305,6 +306,11 @@ func (s StorageEntryMetadataV14) GetHashers() ([]hash.Hash, error) {
 			}
 			hashes = append(hashes, h)
 		}
+	}
+	if s.Type.IsPlainType {
+		// Use a default hasher
+		h := xxhash.New128(nil)
+		hashes = append(hashes, h)
 	}
 	return hashes, nil
 }

@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	gsrpc "github.com/JFJun/go-substrate-rpc-client/v3"
-	"github.com/JFJun/go-substrate-rpc-client/v3/config"
-	"github.com/JFJun/go-substrate-rpc-client/v3/types"
+	gsrpc "github.com/Platdot-Network/go-substrate-rpc-client/v3"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/config"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/types"
 	"github.com/stretchr/testify/assert"
 )
 

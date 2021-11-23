@@ -19,8 +19,8 @@ package state
 import (
 	"errors"
 	"fmt"
-	"github.com/JFJun/go-substrate-rpc-client/v3/client"
-	"github.com/JFJun/go-substrate-rpc-client/v3/types"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/client"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/types"
 )
 
 // GetStorage retreives the stored data and decodes them into the provided interface. Ok is true if the value is not

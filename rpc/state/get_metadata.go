@@ -17,8 +17,8 @@
 package state
 
 import (
-	"github.com/JFJun/go-substrate-rpc-client/v3/client"
-	"github.com/JFJun/go-substrate-rpc-client/v3/types"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/client"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/types"
 )
 
 // GetMetadata returns the metadata at the given block

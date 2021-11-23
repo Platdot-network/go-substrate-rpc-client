@@ -19,15 +19,15 @@ package teste2e
 import (
 	"testing"
 
-	gsrpc "github.com/JFJun/go-substrate-rpc-client/v3"
-	"github.com/JFJun/go-substrate-rpc-client/v3/config"
-	"github.com/JFJun/go-substrate-rpc-client/v3/signature"
-	"github.com/JFJun/go-substrate-rpc-client/v3/types"
+	gsrpc "github.com/Platdot-Network/go-substrate-rpc-client/v3"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/config"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/signature"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/types"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestChain_Events(t *testing.T) {
-	targetURL := config.Default().RPCURL // Replace with desired endpoint
+	targetURL := "wss://kusama-rpc.polkadot.io" // Replace with desired endpoint
 	api, err := gsrpc.NewSubstrateAPI(targetURL)
 	assert.NoError(t, err)
 

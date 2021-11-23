@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/JFJun/go-substrate-rpc-client/v3/signature"
-	. "github.com/JFJun/go-substrate-rpc-client/v3/types"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/signature"
+	. "github.com/Platdot-Network/go-substrate-rpc-client/v3/types"
 	"github.com/stretchr/testify/assert"
 )
 

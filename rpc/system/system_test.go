@@ -20,9 +20,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/JFJun/go-substrate-rpc-client/v3/client"
-	"github.com/JFJun/go-substrate-rpc-client/v3/rpcmocksrv"
-	"github.com/JFJun/go-substrate-rpc-client/v3/types"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/client"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/rpcmocksrv"
+	"github.com/Platdot-Network/go-substrate-rpc-client/v3/types"
 )
 
 var system *System
